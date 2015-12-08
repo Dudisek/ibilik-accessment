@@ -1,0 +1,31 @@
+
+<h1>Create New User</h1>
+
+<% if @errors %>
+	<ul>
+		<% @errors.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+
+<%if logged_in?%>
+  <p>You are already logged in</p>
+<%else%>
+
+<form action="/users" method="post">
+  <br>Name:<br>
+  <input type="text" name="name" placeholder="Name">
+  <br>
+  <br>Email:<br>
+  <input type="email" name="email" placeholer="Email">
+  <br>Password:<br>
+  <input type="password" name="password" placeholder="Password">
+  <br>Password Confirmation:<br>
+  <input type="password" name="password_confirmation" placeholder="Password Confirmation">    
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<%end%>

@@ -1,0 +1,8 @@
+<h1>User Profile</h1>
+Name: <%=@user.name%><br>
+Email: <%=@user.email%><br>
+
+
+<%if authentication? (@user.id)%>
+<a href="<%=@user.id%>/edit">Edit profile</a><br>
+<%end%>

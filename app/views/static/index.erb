@@ -1,2 +1,26 @@
 <h1>Hello World</h1>
 <p>See Me in views/static/index.html.erb</p>
+<h2>USERS: </h2>
+<%@user.each do |a|%>
+	Name: <%=a.name%><br>
+	Email: <%=a.email%><br><br>
+<%end%>
+
+<h2>PROPERTIES: </h2>
+<%@properties.each do |a|%>
+	Title: <%=a.title%><br>
+	Body: <%=a.body%><br><br>
+<%end%>
+
+<%if logged_in?%>
+
+<form action="/logout" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Logout">
+</form>
+<%else%>
+<br>
+<a href="login">Login</a>
+<br>
+<a href="users/registration">Registration</a>
+<%end%>

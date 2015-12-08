@@ -1,0 +1,22 @@
+<h1>Edit Profile</h1>
+
+
+<form action="/users/<%=@user.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+  <br>Name:<br>
+  <input type="text" name="name" value="<%=@user.name%>">
+  <br>
+  <br>Email:<br>
+  <input type="email" name="email" value="<%=@user.email%>">
+  <br>Confirm your Password:<br>
+  <input type="password" name="password" placeholder="Password">
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+
+<form action="/users/<%= @user.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete">
+</form>
+
