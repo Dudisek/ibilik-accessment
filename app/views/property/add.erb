@@ -1,6 +1,8 @@
 <h1>Add property</h1>
+
+<%if logged_in?%>
+
 <form action="/properties" method="post">
-	
   <br>Name:<br>
   <input type="text" name="title" placeholder="Property"><br>
   <br>
@@ -9,3 +11,9 @@
   <br>
   <input type="submit" value="Submit">
 </form>
+
+<%else%>
+
+<p>To add property, please log in or create a new account</p>
+
+<%end%>

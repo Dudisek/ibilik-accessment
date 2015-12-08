@@ -1,8 +1,8 @@
 <h1>View Property</h1>
 Property: <%=@property.title%><br>
 Description: <%=@property.body%><br>
+Created by: <a href="/users/<%=@user.id%>"><%=@user.name%></a><br>
 
-<%byebug%>
 <%if authentication? (@property.user_id)%>
-<a href="<%=@user.id%>/edit">Edit Property</a><br>
+<a href="<%=@property.id%>/edit">Edit Property</a><br>
 <%end%>

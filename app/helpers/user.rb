@@ -8,7 +8,6 @@ def logged_in?
 	!current_user.nil?
 end
 
-def authentication? (user_id)
-	current_user.id == user_id
-	
+def authentication? (user)
+	user == session[:user_id]
 end

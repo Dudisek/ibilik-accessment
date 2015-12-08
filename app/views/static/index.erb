@@ -13,6 +13,8 @@
 <%end%>
 
 <%if logged_in?%>
+<a href="users/<%=current_user.id%>">My Profile</a><br>
+<a href="/properties/add">Add property</a>
 
 <form action="/logout" method="POST">
     <input type="hidden" name="_method" value="delete">
