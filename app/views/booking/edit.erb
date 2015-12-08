@@ -1,0 +1,14 @@
+<h1>Edit Booking</h1>
+
+<form action="/bookings/<%= @booking.id %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+
+	<label>From: </label>
+	<input type="text" name="from" value="<%=@booking.from%>"><br />
+	<label>To: </label>
+	<input type="text" name="to" value="<%=@booking.to%>"><br />
+
+<br>
+	<input type="submit" name="Comment" />
+</form>
+

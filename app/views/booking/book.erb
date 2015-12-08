@@ -1,0 +1,18 @@
+<h1>Book property</h1>
+
+<%if logged_in?%>
+
+<form action="/bookings" method="post">
+	<input type="hidden" name="property_id" value="<%= @booking.id %>">
+	<br>Date from:<br>
+  	<input type="text" name="from" placeholder="yy/mm/dd"><br>
+  	<br>Date from:<br>
+    <input type="text" name="to" placeholder="yy/mm/dd"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<%else%>
+
+<p>To add property, please log in or create a new account</p>
+
+<%end%>

@@ -3,11 +3,18 @@ Property: <%=@property.title%><br>
 Description: <%=@property.body%><br>
 Created by: <a href="/users/<%=@user.id%>"><%=@user.name%></a><br>
 
+<!-- EDIT PROPERTY -->
+
 <%if authentication? (@property.user_id)%>
 <a href="<%=@property.id%>/edit">Edit Property</a><br>
 <%end%>
 
+<!-- BOOKING -->
 
+<% unless authentication? (@property.user_id)%>
+<a href="/bookings/<%=@property.id%>">Book Property</a><br>
+<%else%>
+<%end%><br><br>
 
 
 
@@ -23,10 +30,7 @@ Created by: <a href="/users/<%=@user.id%>"><%=@user.name%></a><br>
 		<%end%><br><br>
 <%end%>
 
-
-
 <br>
-
 
 <!-- COMMENT CREATE -->
 

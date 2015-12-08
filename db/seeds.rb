@@ -15,7 +15,7 @@ end
 
 # # SEED BOOKING
 10.times do
-Booking.create(user_id: Faker::Number.between(0, 10), property_id: Faker::Number.between(0, 10))
+Booking.create(user_id: Faker::Number.between(0, 10), from: Faker::Number.between(0, 10000), to: Faker::Number.between(0, 100000), property_id: Faker::Number.between(0, 10))
 end
 
 # # SEED AVOTES

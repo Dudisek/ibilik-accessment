@@ -5,4 +5,25 @@ Email: <%=@user.email%><br>
 
 <%if authentication? (@user.id)%>
 <a href="<%=@user.id%>/edit">Edit profile</a><br>
+<br>
+<h2>Your bookings:</h2>
+
+
+<%all = Booking.all%>
+<%all.each do |a|%>
+<%if current_user.id == a.user_id%><br>
+<%name = Property.find(a.property_id)%>
+<%=name.title%>
+<%=a.from%><br>
+<%=a.to%><br>
+<a href="/bookings/<%=a.id%>/edit">Edit</a><br><br>
+
+<form action="/bookings/<%= a.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete">
+</form>
+<%end%>
+<%end%>
+
+
 <%end%>
