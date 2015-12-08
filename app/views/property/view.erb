@@ -6,3 +6,43 @@ Created by: <a href="/users/<%=@user.id%>"><%=@user.name%></a><br>
 <%if authentication? (@property.user_id)%>
 <a href="<%=@property.id%>/edit">Edit Property</a><br>
 <%end%>
+
+
+
+
+
+<br>
+<!-- SHOW COMMNETS -->
+
+<%@property.comments.each do |a| %>
+	<%user = User.find(a.user_id)%>
+	User: <a href="/users/<%=user.id%>"><%=user.name%></a><br>
+	Comment: <%=a.comment%><br>
+		<% if authentication? (a.user_id)%>
+		<a href="/comments/<%=a.id%>/edit">Edit Comment</a><br>
+		<%end%><br><br>
+<%end%>
+
+
+
+<br>
+
+
+<!-- COMMENT CREATE -->
+
+<% if logged_in?%> 
+	<form action="/comments" method="post">
+		<input type="hidden" name="property_id" value="<%=@property.id%>">
+		<label>Comment property: </label><br>
+		<textarea type="text" class="form-control"  rows="3" name="comment"></textarea>
+		<br>
+		<div class="pull-right">
+		<input type="submit" class="btn btn-primary" name="Create Answer" /></div>
+	</form>
+<% else %>
+<p>Just registered users can create answers - please log in or create a new account</p>
+<% end %>
+
+
+
+
